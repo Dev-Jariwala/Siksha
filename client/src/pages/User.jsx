@@ -19,7 +19,7 @@ import UserProfileUpdate from "../components/UserProfileUpdate";
 import { toast } from "react-toastify";
 
 export default function User() {
-  const { userInfo, setUserInfo, setAuthenticated } = useAuth();
+  const { userInfo, setUserInfo, setAuthenticated, setCartItems } = useAuth();
   const [loading, setLoading] = useState(true);
   const [playlist, setPlaylist] = useState([]);
   const [playlistLoading, setPlaylistLoading] = useState(false);
@@ -72,6 +72,7 @@ export default function User() {
       setUserInfo(null);
       toast.success("Logout Successfully!");
       setLoading(false);
+      setCartItems([]);
     } catch (error) {
       // console.log(error);
       setLoading(false);

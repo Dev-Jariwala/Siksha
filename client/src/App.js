@@ -39,6 +39,7 @@ function App() {
         console.log(authenticated);
         setUserInfo(user);
         console.log(user);
+        setCartItems(user.cart);
       } catch (error) {
         // console.error("Error checking authentication:", error);
         setAuthenticated(false);
@@ -46,7 +47,7 @@ function App() {
     };
 
     checkAuthentication();
-  }, []);
+  }, [setAuthenticated, setUserInfo, setCartItems]);
 
   useEffect(() => {
     const fetchCartItems = async () => {
@@ -77,7 +78,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <Navbar />
+      <Navbar psa={setAuthenticated} psui={setUserInfo} psci={setCartItems} />
       <Sidebar />
       <Routes>
         <Route path="/" element={<HomePage />} />

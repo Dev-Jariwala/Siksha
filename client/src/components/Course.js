@@ -19,7 +19,7 @@ const Course = ({ course }) => {
     rating_star,
     course_url,
   } = course;
-  console.log(course);
+  // console.log(course);
   const { setCartItems, userInfo, setUserInfo, setAuthenticated } = useAuth();
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(false);

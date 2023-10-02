@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import Loader1 from "../components/loaders/Loader1";
 
 const HomePage = () => {
-  const { setUserInfo, setAuthenticated } = useAuth();
+  const { setUserInfo, setAuthenticated, setCartItems } = useAuth();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const HomePage = () => {
         // console.log(authenticated);
         setUserInfo(user);
         // console.log(user);
+        setCartItems(user.cart);
         setLoading(false);
       } catch (error) {
         // console.error("Error checking authentication:", error);
@@ -31,7 +32,7 @@ const HomePage = () => {
     };
 
     checkAuthentication();
-  }, [setAuthenticated, setUserInfo]);
+  }, [setAuthenticated, setUserInfo, setCartItems]);
   if (loading) {
     return <Loader1></Loader1>;
   }

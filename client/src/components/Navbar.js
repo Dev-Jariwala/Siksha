@@ -6,7 +6,7 @@ import { useSidebarContext } from "../context/sidebar_context";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
-const Navbar = () => {
+const Navbar = ({ psa, psui, psci }) => {
   // const {total_items} = useCartContext();
   const { cartItems, setCartItems } = useAuth();
 
